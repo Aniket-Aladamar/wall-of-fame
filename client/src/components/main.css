@@ -1,0 +1,259 @@
+
+body {
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #e0f7fa; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+
+  .App {
+    text-align: center;
+  }
+  
+  .title {
+    font-family: "Poppins", sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    color: #0288d1; 
+    text-align: center;
+    margin: 20px 0;
+    animation: glow 1.5s infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #0288d1, 0 0 20px #0288d1, 0 0 30px #0288d1;
+    }
+    to {
+      text-shadow: 0 0 20px #03a9f4, 0 0 30px #03a9f4, 0 0 40px #03a9f4;
+    }
+  }
+  
+  p {
+    line-height: 1.5em;
+  }
+  
+  h1 + p, p + p {
+    margin-top: 10px;
+  }
+  
+  /* Container styles */
+  .container {
+    padding: 40px 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .wall-of-fame {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .fame-entries {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+  }
+  
+  .fame-entry {
+    border: 1px solid #0288d1; 
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+    width: 700px;
+    height: 370px;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .fame-entry:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .fame-entry img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+  
+  .fame-entry h2 {
+    margin: 10px 0 5px 0;
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
+    color: #01579b; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .fame-entry p {
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Playfair Display', serif;
+    color: #0277bd;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .card-wrap {
+    margin: 10px;
+    transform: perspective(800px);
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+  
+  .card-wrap:hover .card-info {
+    transform: translateY(0);
+  }
+  
+  .card-wrap:hover .card-info p {
+    opacity: 1;
+  }
+  
+  .card-wrap:hover .card-info,
+  .card-wrap:hover .card-info p {
+    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .card-wrap:hover .card-info:after {
+    transition: 5s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .card-wrap:hover .card-bg {
+    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 5s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 0.8;
+  }
+  
+  .card-wrap:hover .card {
+    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 2s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0 40px 5px, rgba(255, 255, 255, 1) 0 0 0 1px, inset #0288d1 0 0 0 5px, inset #ffffff 0 0 0 6px;
+  }
+  
+  .card {
+    position: relative;
+    flex: 0 0 240px;
+    width: 240px;
+    height: 320px;
+    background-color: #ffffff; 
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 30px 60px 0, inset #0288d1 0 0 0 5px, inset rgba(255, 255, 255, 0.5) 0 0 0 6px;
+    transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+  
+  .card-bg {
+    opacity: 0.5;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    pointer-events: none;
+  }
+  
+  .card-info {
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    color: #01579b; 
+    transform: translateY(40%);
+    transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  
+  .card-info p {
+    opacity: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    text-shadow: rgba(0, 0, 0, 0.1) 0 2px 3px;
+    transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  
+  .card-info * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .card-info:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
+    background-blend-mode: overlay;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+  
+  .card-info h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #0288d1; 
+    text-shadow: rgba(0, 0, 0, 0.1) 0 10px 10px;
+  }
+  
+  header {
+    width: 100%;
+    background: #0288d1; 
+    padding: 20px 0;
+  }
+  
+  .main-nav {
+    width: 100%;
+    background: #0288d1; 
+    text-align: center;
+  }
+  
+  .nav-container {
+    display: inline-block;
+    background: #0288d1; 
+    padding: 20px 50px;
+    border-radius: 10px;
+    transition: background 0.3s;
+  }
+  
+  .nav-container h1 {
+    margin: 0;
+    font-size: 3.5em;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .nav-container:hover {
+    background: #0277bd;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #0288d1; 
+    color: #ffffff; 
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+  }
+  

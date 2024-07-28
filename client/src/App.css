@@ -1,0 +1,19 @@
+
+.App {
+  text-align: center;
+}
+.title {
+  font-family: "Raleway";
+  font-size: 50px;
+  font-weight: 700;
+  color: #5D4037;
+  text-align: center;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+h1+p, p+p {
+  margin-top: 10px;
+}
